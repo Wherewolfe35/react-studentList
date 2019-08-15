@@ -4,10 +4,11 @@ import './App.css';
 import StudentForm from '../StudentForm/StudentForm';
 import StudentList from "../StudentList/StudentList";
 
+
 class App extends Component {
   state = {
     studentList: [],
-    newStudent: ''
+    detailList: []
   };
 
   componentDidMount() {
@@ -39,7 +40,21 @@ class App extends Component {
     })
   }
 
+  getDetails = (name) => {
+    console.log('In getDetails');
+    axios.get(`https://api.github.com/users/${name}?access_token=913f20e25e454b699cbf7b4d5f3ae7fd516cafc4`).then((response) => {
+      console.log(response.data);
+      this.setState({
+        detailList: [response.data]
+      })
+    }).catch((error) => {
+      console.log(error);
+    })
+  }
+
   render() {
+    console.log(this.state);
+    
     return (
       <div className="App">
         <header className="App-header">
@@ -48,7 +63,7 @@ class App extends Component {
         <br/>
         <StudentForm addStudent={this.addStudent}/>
 
-        <StudentList studentList={this.state.studentList}/>
+        <StudentList studentList={this.state.studentList} getDetails={this.getDetails} detailList={this.state.detailList}/>
       </div>
     );
   }
