@@ -7,6 +7,7 @@ import StudentList from "../StudentList/StudentList";
 class App extends Component {
   state = {
     studentList: [],
+    newStudent: ''
   };
 
   componentDidMount() {
@@ -18,6 +19,12 @@ class App extends Component {
   addStudent = (newStudent) => {
     console.log(newStudent);
     // POST your data here
+    axios.post(`/students`, newStudent).then((response) => {
+      console.log(response);
+      this.getStudents();
+    }).catch((error) => {
+      console.log(error);
+    })
   }
 
   getStudents = () => {
