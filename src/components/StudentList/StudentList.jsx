@@ -21,7 +21,7 @@ class StudentList extends Component {
           ))}
           </tbody>
         </table>
-        <StudentDetails detailList={this.props.detailList}/>
+        {/* <StudentDetails detailList={this.props.detailList}/> */}
       </div>
      );
   }

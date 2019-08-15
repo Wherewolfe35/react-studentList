@@ -8,7 +8,7 @@ import StudentList from "../StudentList/StudentList";
 class App extends Component {
   state = {
     studentList: [],
-    detailList: []
+    detailList: ''
   };
 
   componentDidMount() {
@@ -45,7 +45,7 @@ class App extends Component {
     axios.get(`https://api.github.com/users/${name}?access_token=913f20e25e454b699cbf7b4d5f3ae7fd516cafc4`).then((response) => {
       console.log(response.data);
       this.setState({
-        detailList: [response.data]
+        detailList: response.data
       })
     }).catch((error) => {
       console.log(error);

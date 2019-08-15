@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Controller from "../Utility/Controller";
+import Select from "../Utility/Select"
+import Tooltip from 'tooltip';
 
 
 class StudentDetails extends Component {
@@ -6,11 +9,14 @@ class StudentDetails extends Component {
   render() { 
     return ( 
       <div>
-        {this.props.detailList.map(detail=>(
+        
           <ul>
-            <li>{detail.followers}</li>
+            <Controller>
+            <Select><li>{this.props.detailList.followers}</li></Select>
+            <Tooltip />
+            </Controller>
           </ul>
-        ))}
+        
       </div>
      );
   }
