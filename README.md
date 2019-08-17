@@ -46,7 +46,7 @@ Between the server and client, you'll need two terminal tabs! Because we're usin
 GitHub doesn't like it when malicious users pummel their API with an absurd amount of requests. Unfortunately, there's not a great way to tell who is malicious and who is not, so there is a rate limit to the number of requests allowed by GitHub (50 per hour from an IP address). You can increase that limit with a GitHub access token (pretty common among APIs). If you begin to get `403` status errors, you may want to try using our access token which will bump you up to 5000 requests per hour:
 
 ```
-https://api.github.com/users/GITHUB_USERNAME?access_token=913f20e25e454b699cbf7b4d5f3ae7fd516cafc4
+{https://api.github.com/users/} GITHUB_USERNAME {?access_token=913f20e25e454b699cbf7b4d5f3ae7fd516cafc4}
 ```
 
 If your cohort burns through that, try creating your own access token:
